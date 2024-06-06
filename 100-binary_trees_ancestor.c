@@ -9,7 +9,8 @@
  * or NULL if no common ancestor was found
  */
 
-binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second)
+binary_tree_t *binary_trees_ancestor(const binary_tree_t *first
+		, const binary_tree_t *second)
 {
 	binary_tree_t *parent1, *parent2;
 
@@ -30,7 +31,8 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tr
 	{
 		return (binary_trees_ancestor(first, parent2));
 	}
-	else if (second == parent1 || !parent2 || (!parent2->parent && parent2 != first))
+	else if (second == parent1 || !parent2 ||
+			(!parent2->parent && parent2 != first))
 	{
 		return (binary_trees_ancestor(parent1, second));
 	}
