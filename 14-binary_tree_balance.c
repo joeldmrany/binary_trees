@@ -29,10 +29,10 @@ int binary_tree_balance(const binary_tree_t *tree)
 {
 	int left, right, B_factor;
 
-	left = height(tree->left);
-	right = height(tree->right);
 	if (tree == NULL)
 		return (0);
+	left = height(tree->left);
+	right = height(tree->right);
 	B_factor = left - right;
 	return (B_factor);
 }
