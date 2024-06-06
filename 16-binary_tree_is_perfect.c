@@ -1,4 +1,5 @@
 #include "binary_trees.h"
+
 /**
  * is-leaf - checks for leaf node
  * @node: pointer to leaf node
@@ -9,6 +10,7 @@ bool is_leaf(binary_tree_t *node)
 	return (node == NULL ||
 	(node->left == NULL && node->right == NULL));
 }
+
 /**
  * binary_tree_is_perfect - check if the tree is perfect
  * @tree: pointer to the node to check
