@@ -1,14 +1,22 @@
 #include "binary_trees.h"
-
 /**
- * is-leaf - checks for leaf node
- * @node: pointer to leaf node
- * Return: return if node is leaf
-*/
-bool is_leaf(binary_tree_t *node)
+ * binary_tree_is_leaf - return 1 if the node is root
+ * @node: node to check
+ * Return: 1 or 0
+ */
+
+int binary_tree_is_leaf(const binary_tree_t *node)
 {
-	return (node == NULL ||
-	(node->left == NULL && node->right == NULL));
+	if (node == NULL)
+	{
+		return (0);
+	}
+
+	if (node->left == NULL && node->right == NULL)
+	{
+		return (1);
+	}
+	return (0);
 }
 
 /**
@@ -23,15 +31,17 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 		return (0);
 	}
 
-	if (is_leaf(tree->left) != is_leaf(tree->right))
+	if (binary_tree_is_leaf(tree->left) != binary_tree_is_leaf(tree->right))
 	{
 		return (0);
 	}
-	if (is_leaf(tree->left))
+
+	if (binary_tree_is_leaf(tree->left) && binary_tree_is_leaf(tree->right))
 	{
 		return (1);
 	}
-	else
+
+	if (tree->left != NULL && tree->right != NULL)
 	{
 		return (binary_tree_is_perfect(tree->left) &&
 		binary_tree_is_perfect(tree->right));
